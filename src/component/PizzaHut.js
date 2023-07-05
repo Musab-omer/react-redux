@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import pizza from '../assets/img/Pizza_Hut_adds_cheese.jpg';
 let PizzaHut = () => {
+    let[count,setCount]=useState(50)
     return (
         <React.Fragment>
             <section p-3>
@@ -22,9 +23,9 @@ let PizzaHut = () => {
                         <div className="col-md-6">
                             <p className="h2 text-danger">Checkin Pizza</p>
                             <p className="h4">
-                                <span className="fw-bold">40</span>
+                                <span className="fw-bold">{count}</span>
                             </p>
-                            <button type="button" className="btn btn-success btn-sm">buy pizza</button>
+                            <button type="button" onClick={e=>setCount(count-1>0?count-1:1)} className="btn btn-success btn-sm">buy pizza</button>
                         </div>
                     </div>
                 </div>
