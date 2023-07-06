@@ -1,0 +1,29 @@
+Configuration of React Redux :
+--------------------------------
+-> Install Redux Packages 
+
+redux , react-redux , @redux-devtools/extension 
+
+-> redux package for state management 
+-> react-redux for connect react component with redux 
+-> @redux-devtools/extension form dubgin
+
+npm Install redux react-redux @redux-devtools/extension
+
+Terminologies : 
+-------------------
+1. store -> maintains a complete application data
+2. reducer -> a pure function updates/modifies the state/ store for an action 
+3. action -> a command to modify / update the store data
+4. selector -> to get data from the store
+5. dispatch -> a function to trigger an action 
+
+useSelector() -> to get data from the REDUX store
+useDispatch() -> to dispatch  an action  to REDUX store
+
+for dubg on the browser install blagin
+
+Redux DevTools 
+
+redux-logger module to show log on console browser and other think
+
