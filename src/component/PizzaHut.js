@@ -1,10 +1,23 @@
 import React, { useState } from "react";
-import pizza from '../assets/img/Pizza_Hut_adds_cheese.jpg';
+import pizzaImg from '../assets/img/Pizza_Hut_adds_cheese.jpg';
+import { useDispatch, useSelector } from "react-redux";
+import { buyPizza } from "../redux/pizzahut/pizzahut.actions";
 let PizzaHut = () => {
-    let[count,setCount]=useState(50)
+
+    let dispatch=useDispatch();
+    //get the data from REDUX Store
+    let pizzaInfo=useSelector((state)=>{
+        return state['pizza'];
+    })
+    
+    let clickBuyPizza=()=>{
+        //dispatch an action to update the state
+        dispatch(buyPizza());
+    }
+   
     return (
         <React.Fragment>
-            <section p-3>
+            <section className="p-3">
                 <div className="container mt-3">
                     <div className="row">
                         <div className="col">
@@ -18,14 +31,16 @@ let PizzaHut = () => {
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-md-6">
-                            <img src={pizza} className="img-fluid img-thumbnail" alt=""/>
+                            <img src={pizzaImg} className="img-fluid img-thumbnail" alt="" />
                         </div>
                         <div className="col-md-6">
                             <p className="h2 text-danger">Checkin Pizza</p>
-                            <p className="h4">
-                                <span className="fw-bold">{count}</span>
+                            <p className="h4"> Available 
+                                {/* <span className="fw-bold">{pizza.count}</span> */}
+                                <span className="fw-bold"> {pizzaInfo.count}</span>
                             </p>
-                            <button type="button" onClick={e=>setCount(count-1>0?count-1:1)} className="btn btn-success btn-sm">buy pizza</button>
+                         <button type="button" onClick={clickBuyPizza} className="btn btn-success btn-sm">buy pizza</button>
+                           
                         </div>
                     </div>
                 </div>
