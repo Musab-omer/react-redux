@@ -5,6 +5,7 @@ import MessageCard from './component/MessageCard';
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
 import Product from './component/Product';
+import Counter from './component/Counter';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <MainNavbar />
         <Provider store={store}>
           {/* <MessageCard /> */}
-          <Product/>
+          {/* <Product/> */}
+          <Counter/>
         </Provider>
 
       </header>
