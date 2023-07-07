@@ -1,7 +1,8 @@
-import {combineReducers} from 'redux';
-import { pizzahutReducer } from './pizzahut/pizzahut.reducer';
+import {combineReducers} from 'redux'
+import { messageCardReducer, messageFeatureKey } from './messageCard/messageCard.reducer'
 
-let rootReducer =combineReducers({
-    pizza:pizzahutReducer
+let rootReducer=combineReducers({
+    // messageCard:messageCardReducer
+    [messageFeatureKey]:messageCardReducer
 })
 export {rootReducer}
