@@ -1,22 +1,29 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {goodAfternoon, goodEvening, greet, greetPerson} from '../redux/messageCard/messageCard.actions'
+import { messageFeatureKey } from "../redux/messageCard/messageCard.reducer";
 
 let MessageCard = () => {
+    //trigger an action to updates/modifies store
+    let dispatch=useDispatch()
+    //get data from REDUX store
+    let messageCardInfo=useSelector((state)=>{
+        return state[messageFeatureKey]
+    });
 
-   
-
+    let greet1=()=>{
+        dispatch(greet())
+    }
     
-    let [message,setMessage]=useState('Hello');
-    let greet=()=>{
-          setMessage('Good morning')
+    let sayGoodAfternoon=()=>{
+        dispatch(goodAfternoon())
+    }
+    let sayGoodEvening=()=>{
+        dispatch(goodEvening())
     }
 
-    let sayGoodEvening=(value)=>{
-        setMessage(value)
-    }
-
-    let greetPerson=(value,name)=>{
-        setMessage(value +" "+name)
+    let sayGreetPerson=()=>{
+        dispatch(greetPerson())
     }
     return (
         <React.Fragment>
@@ -25,11 +32,11 @@ let MessageCard = () => {
                     <div className="col">
                         <div className="card">
                             <div className="card-body">
-                                <h2>{message} </h2>
-                                <button className="btn btn-success m-1" onClick={greet} type="button" >greet</button>
-                                <button className="btn btn-warning m-1" onClick={()=>setMessage('Good afternon')} type="button" >Afternon</button>
-                                <button className="btn btn-primary m-1" onClick={sayGoodEvening.bind(this,'good evening')} type="button" >Good Evening</button>
-                                <button className="btn btn-info m-1" onClick={greetPerson.bind(this,'hell','musab')} type="button" >greeting Person</button>
+                                <h2>{messageCardInfo.message} </h2>
+                                <button className="btn btn-success m-1" onClick={greet1} type="button" >greet</button>
+                                <button className="btn btn-warning m-1" onClick={sayGoodAfternoon} type="button" >Afternon</button>
+                                <button className="btn btn-primary m-1" onClick={sayGoodEvening} type="button" >Good Evening</button>
+                                <button className="btn btn-info m-1" onClick={sayGreetPerson} type="button" >greeting Person</button>
                             </div>
                         </div>
                     </div>
