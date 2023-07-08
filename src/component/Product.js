@@ -10,7 +10,6 @@ let Product = () => {
         return stata[proudctFeatureKey]
     });
     let {product}=proudctInfo;
-    //alert(JSON.stringify(proudctInfo))
     //dispatch an trigger
     let dispatch=useDispatch();
 
