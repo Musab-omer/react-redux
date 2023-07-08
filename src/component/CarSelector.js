@@ -1,10 +1,19 @@
 import React, { useState } from "react";
-
+import { useDispatch, useSelector } from "react-redux";
+import { careFeatureKey } from "../redux/care/care.reducer";
+import * as carAction from '../redux/care/care.actions'
 let CarSelector=()=>{
-    let [Car, setCar]=useState('car')
+
+    //get data from REDUX store
+    let carePrandInfo=useSelector((state)=>{
+        return state[careFeatureKey]
+    });
+
+    //dispatch action 
+    let dispatch=useDispatch();
 
     let selectCar=(e)=>{
-        setCar(e.target.value)
+        dispatch(carAction.selectPrand(e.target.value))
     }
     return (
         <React.Fragment>
@@ -21,7 +30,7 @@ let CarSelector=()=>{
                                         <form>
                                             <div className="mb-1">
                                                 <select className="form-select" aria-label="car slect example"
-                                                value={Car}
+                                                value={carePrandInfo.prand}
                                                 onChange={selectCar}>
                                                     <option selected>Select Car</option>
                                                     <option value="BMW">BMW</option>
@@ -33,7 +42,7 @@ let CarSelector=()=>{
                                         </form>
                                     </div>
                                     <div className="col-md-4">
-                                        <h2>{Car}</h2>
+                                        <h2>{carePrandInfo.prand}</h2>
                                     </div>
                                 </div>
                             </div>
