@@ -1,6 +1,6 @@
 import * as careAction from './care.actions'
 
-export const careFeatureKey='care';
+export const carFeatureKey='care';
 
 let initialState={
     prand:'select car'
