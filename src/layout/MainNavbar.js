@@ -4,7 +4,7 @@ let MainNavbar = () => {
     return (
         <React.Fragment>
             <div className="navbar navbar-expand-lg navbar-light bg-light shadow p-3">
-                <a href="/" className="navbar-brand p-2 fw-bolder"> React Redux Form Binding</a>
+                <a href="/" className="navbar-brand p-2 fw-bolder"> React Redux Conditionls and Looping</a>
                 <button className="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                     <span className="navbar-toggler-icon"></span>
                 </button>
