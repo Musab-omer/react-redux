@@ -24,7 +24,7 @@ export const reducer = (state = initialState, action) => {
                     qty: (state.product.qty - 1 > 0) ? state.product.qty - 1 : 1
                 }
             }
-            break;
+            //break;
         case proudctAction.INCREASE_QTY:
             return {
                 product: {
@@ -32,7 +32,7 @@ export const reducer = (state = initialState, action) => {
                     qty: state.product.qty + 1
                 }
             }
-            break;
+            //break;
         default: return state
     }
 }
