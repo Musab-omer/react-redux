@@ -1,13 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { counterFeatureKey } from "../redux/counter/counter.reducer";
+import * as counterAction from '../redux/counter/counter.actions';
 
 
 let Counter = () => {
+    //get data from REDUX store
+    let counterInfo=useSelector((state)=>{
+        return state[counterFeatureKey]
+    });
 
-    let [counter, setCounter] = useState(0)
-    let counterInq = () => {
-        setCounter(
-            counter + 1
-        )
+    //dispatch an action 
+    let dispatch=useDispatch();
+    let incCounter=()=>{
+        dispatch(counterAction.incrementCounter())
+    }
+
+    let decCounter=()=>{
+        dispatch(counterAction.decrementCounter())
     }
     return (
         <React.Fragment>
@@ -19,10 +29,9 @@ let Counter = () => {
                                 <p className="h4">Counter</p>
                             </div>
                             <div className="card-body">
-                                <p className="h2">{counter}</p>
-
-                                <button className="btn btn-success m-1" onClick={counterInq}>Increment</button>
-                                <button className="btn btn-warning m-1" onClick={() => { setCounter(counter + 1) }}>Increment</button>
+                                <p className="h2">{counterInfo.counter}</p>
+                                <button className="btn btn-success m-1" onClick={incCounter} >Increment</button>
+                                <button className="btn btn-warning m-1" onClick={decCounter} >Decrment</button>
                             </div>
                         </div>
                     </div>
