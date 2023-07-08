@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store';
 import CarSelector from './component/CarSelector';
 import MessageCard from './component/MessageCard';
+import SMSApp from './component/SMSApp';
+import UserRegistration from './component/UserReagistration';
 
 
 function App() {
@@ -14,7 +16,9 @@ function App() {
         <MainNavbar />
         <Provider store={store}>
          {/* <CarSelector/> */}
-         <MessageCard/>
+         {/* <MessageCard/> */}
+         {/* <SMSApp/> */}
+         <UserRegistration/>
         </Provider>
       </header>
     </div>
