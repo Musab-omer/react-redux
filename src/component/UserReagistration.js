@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import * as registerAction from '../redux/registration/register.actions'
 
 let UserRegistration = () => {
 
@@ -26,10 +28,11 @@ let UserRegistration = () => {
                 })
         }
     }
-
+    let dispatch=useDispatch();
     let registerUser=(e)=>{
         e.preventDefault();
         console.log(User);
+        dispatch(registerAction.register(User))
     }
 
     
