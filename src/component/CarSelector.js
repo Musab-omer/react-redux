@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { careFeatureKey } from "../redux/care/care.reducer";
+import { carFeatureKey } from "../redux/care/care.reducer";
 import * as carAction from '../redux/care/care.actions'
 let CarSelector=()=>{
 
     //get data from REDUX store
     let carePrandInfo=useSelector((state)=>{
-        return state[careFeatureKey]
+        return state[carFeatureKey]
     });
 
     //dispatch action 
