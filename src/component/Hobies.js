@@ -2,23 +2,19 @@ import React, { useState } from "react";
 import imgEat from "../assets/img/sudan.jpg";
 import imgCoding from "../assets/img/desert_4.jpg";
 import imgsleep from "../assets/img/desert_2.jpg";
-
-
+import { useDispatch, useSelector } from "react-redux";
+import {hobiesFeatureKey} from '../redux/hobies/hobbySelector.reducer'
+import * as hobbySelectorAction from '../redux/hobies/hobbySelector.actions'
 
 let Hobies = () => {
-
-    let [Hobies, setHobies] = useState({
-        eating: false,
-        coding: false,
-        sleeping: false
+    //get data from Redux store
+    let hobiesInfo=useSelector((state)=>{
+        return state[hobiesFeatureKey]
     })
-
-    let selectHobies = (event) => {
-        setHobies({
-            ...Hobies,
-            [event.target.name]: event.target.checked
-        })
-    }
+    let {hobies}=hobiesInfo;
+    
+    let dispatch=useDispatch();
+    
     return (
         <React.Fragment>
             <div className="container mt-3">
@@ -34,19 +30,19 @@ let Hobies = () => {
                                         <form>                                            
                                                 <div className="form-check">
                                                     <input type="checkbox" className="form-check-input" id="eating" name="eating"
-                                                        onChange={selectHobies}
+                                                        onChange={e=>{dispatch(hobbySelectorAction.eatingCheck(e.target.checked))}}
                                                     />
                                                     <label className="form-check-label" for="eating">Eating</label>
                                                 </div>
                                                 <div className="form-check">
                                                     <input type="checkbox" className="form-check-input" id="coding" name="coding"
-                                                        onChange={selectHobies}
+                                                        onChange={e=>{dispatch(hobbySelectorAction.codingCheck(e.target.checked))}}
                                                     />
                                                     <label className="form-check-label" for="coding">Coding</label>
                                                 </div>
                                                 <div className="form-check">
                                                     <input type="checkbox" className="form-check-input" id="sleeping" name="sleeping"
-                                                        onChange={selectHobies}
+                                                        onChange={e=>{dispatch(hobbySelectorAction.sleepingCheck(e.target.checked))}}
                                                     />
                                                     <label className="form-check-label" for="sleeping">Sleeping</label>
                                                 </div>                                          
@@ -55,7 +51,7 @@ let Hobies = () => {
                                     <div className="col d-flex">
 
                                         {
-                                            Hobies.eating ?
+                                            hobies.eating ?
                                                 <React.Fragment>
                                                     <div className="card shadow animated jello" id="eating-card">
 
@@ -70,7 +66,7 @@ let Hobies = () => {
                                         }
 
                                         {
-                                            Hobies.coding ?
+                                            hobies.coding ?
                                                 <React.Fragment>
                                                     <div className="card shadow animated jello" id="code-card">
                                                         <div className="card-header">
@@ -85,7 +81,7 @@ let Hobies = () => {
 
 
                                         {
-                                            Hobies.sleeping ?
+                                            hobies.sleeping ?
                                                 <React.Fragment>
                                                     <div className="card shadow animated jello" id="sleep-card">
                                                         <div className="card-header">
