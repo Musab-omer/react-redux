@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import imgEat from "../assets/img/sudan.jpg";
 import imgCoding from "../assets/img/desert_4.jpg";
 import imgsleep from "../assets/img/desert_2.jpg";
+import { useDispatch, useSelector } from "react-redux";
+import {hobiesFeatureKey} from '../redux/hobby/hobbyRadioSelector.reducer';
+import * as hobbyRadioSelectorAction from '../redux/hobby/hobbyRadioSelector.action';
 
 
 let HobiesRadio = () => {
-    let [Hobby, setHobby] = useState(null);
-    let selectHobby = (e) => {
-        setHobby(e.target.value)
-    }
+    //get data from redux store 
+    let hobiesInfo=useSelector((state)=>{
+        return state[hobiesFeatureKey]
+    })
+   
+    let dispatch=useDispatch();
+
     return (
         <React.Fragment>
             <div className="container mt-3">
@@ -25,7 +31,7 @@ let HobiesRadio = () => {
                                            
                                                 <div className="form-check">
                                                     <input type="radio" className="form-check-input" id="eating" value="eating" name="hobies"
-                                                        onChange={selectHobby}
+                                                        onChange={e=>{dispatch(hobbyRadioSelectorAction.eatingCheck(e.target.value))}}
                                                     />
                                                     <label className="form-check-label" for="eating">Eating</label>
                                                 </div>
@@ -33,7 +39,7 @@ let HobiesRadio = () => {
                                           
                                                     <div className="form-check">
                                                         <input type="radio" className="form-check-input" id="coding" value="coding" name="hobies"
-                                                            onChange={selectHobby}
+                                                            onChange={e=>{dispatch(hobbyRadioSelectorAction.codingCheck(e.target.value))}}
                                                         />
                                                         <label className="form-check-label" for="coding">Coding</label>
                                                     </div>
@@ -41,7 +47,7 @@ let HobiesRadio = () => {
                                                 
                                                     <div className="form-check">
                                                         <input type="radio" className="form-check-input" id="sleeping" value="sleeping" name="hobies"
-                                                            onChange={selectHobby}
+                                                            onChange={e=>{dispatch(hobbyRadioSelectorAction.sleepingCheck(e.target.value))}}
                                                         />
                                                         <label className="form-check-label" for="sleeping">Sleeping</label>
                                                     </div>
@@ -51,7 +57,7 @@ let HobiesRadio = () => {
                                     <div className="col-md-4 d-flex">
 
                                         {
-                                            Hobby === "eating" ?
+                                            hobiesInfo.Hobby === "eating" ?
                                                 <React.Fragment>
                                                     <div className="card shadow animated jello" id="eating-card">
 
@@ -68,7 +74,7 @@ let HobiesRadio = () => {
                                         }
 
                                         {
-                                            Hobby === "coding" ?
+                                            hobiesInfo.Hobby === "coding" ?
                                                 <React.Fragment>
                                                     <div className="card shadow animated jello" id="code-card">
                                                         <div className="card-header">
@@ -85,7 +91,7 @@ let HobiesRadio = () => {
 
 
                                         {
-                                            Hobby === "sleeping" ?
+                                            hobiesInfo.Hobby === "sleeping" ?
                                                 <React.Fragment>
                                                     <div className="card shadow animated jello" id="sleep-card">
                                                         <div className="card-header">
