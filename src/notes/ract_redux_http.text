@@ -1,0 +1,25 @@
+React with http with Redux 
+------------------------------
+
+npm install redux-thunk
+
+https://jsonplaceholder.typicode.com/users
+
+React Redux using direct action 
+
+actions -> direct actions -> incCounter() , dicCounter()
+
+in React Redux http 
+
+3 set of actions -> for example to featch users data from server actions will be :
+
+FETCH_USER_REQUEST
+FETCH_USER_SUCCESS
+FETCH_USER_FAILURE
+
+State : 
+
+loading     while request the server 
+data        successful result recived from the server 
+error       failure result recived from the server
+
