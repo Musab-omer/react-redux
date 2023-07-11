@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store';
 import UserList from './component/UserList';
 import UserListSimple from './component/UserListSimple';
+import CustomersCard from './component/custoemrs/CustomersCard';
 
 
 
@@ -16,7 +17,8 @@ function App() {
         <MainNavbar />
         <Provider store={store}>
           {/* <UserList/> */}
-          <UserListSimple/>
+          {/* <UserListSimple/> */}
+          <CustomersCard/>
         </Provider>
       </header>
     </div>
