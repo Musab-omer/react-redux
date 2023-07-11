@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-//import './App.css';
+//import './App.css'
 import MainNavbar from './layout/MainNavbar';
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
