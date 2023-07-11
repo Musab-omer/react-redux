@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import MainNavbar from './layout/MainNavbar';
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
+import UserList from './component/UserList';
 
 
 
@@ -13,7 +14,7 @@ function App() {
       <header className="App-header">
         <MainNavbar />
         <Provider store={store}>
-       
+          <UserList/>
         </Provider>
       </header>
     </div>
