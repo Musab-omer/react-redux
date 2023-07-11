@@ -4,6 +4,7 @@ import MainNavbar from './layout/MainNavbar';
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
 import UserList from './component/UserList';
+import UserListSimple from './component/UserListSimple';
 
 
 
@@ -14,7 +15,8 @@ function App() {
       <header className="App-header">
         <MainNavbar />
         <Provider store={store}>
-          <UserList/>
+          {/* <UserList/> */}
+          <UserListSimple/>
         </Provider>
       </header>
     </div>
