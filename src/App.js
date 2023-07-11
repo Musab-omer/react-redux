@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import MainNavbar from './layout/MainNavbar';
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
-import ContactApp from './component/contactApp/ContactApp';
 
 function App() {
   return (
@@ -11,7 +10,7 @@ function App() {
       <header className="App-header">
         <MainNavbar />
         <Provider store={store}>
-          <ContactApp/>
+         
         </Provider>
       </header>
     </div>
