@@ -3,12 +3,7 @@ import logo from './logo.svg';
 import MainNavbar from './layout/MainNavbar';
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
-import UserList from './component/UserList';
-import UserListSimple from './component/UserListSimple';
-import CustomersCard from './component/custoemrs/CustomersCard';
-
-
-
+import ContactApp from './component/contactApp/ContactApp';
 
 function App() {
   return (
@@ -16,9 +11,7 @@ function App() {
       <header className="App-header">
         <MainNavbar />
         <Provider store={store}>
-          {/* <UserList/> */}
-          {/* <UserListSimple/> */}
-          <CustomersCard/>
+          <ContactApp/>
         </Provider>
       </header>
     </div>
