@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import MainNavbar from './layout/MainNavbar';
 import { Provider } from 'react-redux'
 import { store } from './redux/store';
+import GithubSearchApp from './component/gitHub/GithubSearchApp';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <header className="App-header">
         <MainNavbar />
         <Provider store={store}>
-         
+         <GithubSearchApp/>
         </Provider>
       </header>
     </div>
