@@ -10,6 +10,7 @@ import 'mdb-ui-kit/css/mdb.min.css'
 
 
 import 'bootstrap/js/dist/collapse';
+import 'bootstrap/js/dist/alert'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
