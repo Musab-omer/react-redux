@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import GithubProfileCard from "./GithubProfileCard"
 import GithubProfileDetails from "./GithubProfileDetails"
-import GithubRepos from "../github-repo/GithubRespos"
+import GithubRepos from "../github-repo/GithubRepos"
 import { useDispatch, useSelector } from "react-redux"
 import * as githubSearchAppAction from '../../../redux/gitHubApp/githubSearchApp.actions'
 import { githubSearchAppFeatureKey } from '../../../redux/gitHubApp/githubSearchApp.reducer'
@@ -20,8 +20,8 @@ let GithubSearch = () => {
     let { loading, profile, repos, errorMessage } = gitHubInof
     let dispatch = useDispatch();
 
-    let searchGithubUser = () => {
-        //alert(user)
+    let searchGithubUser = (event) => {
+        event.preventDefault();
         dispatch(githubSearchAppAction.fetachGithubProfile(user));
 
         dispatch(githubSearchAppAction.fetachGithubRepos(user))
@@ -43,18 +43,18 @@ let GithubSearch = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col">
-                            <form className="row">
+                            <form className="row mb-2" onSubmit={searchGithubUser}>
                                 <div className="col-auto">
-                                    <input type="text" className="form-control" value={user} onChange={updateUserInput} placeholder="user profile name" />
+                                    <input type="text" className="form-control" required value={user} onChange={updateUserInput} placeholder="user profile name" />
                                 </div>
                                 <div className="col-auto">
-                                    <button type="button" className="btn btn-success" onClick={searchGithubUser}>Search</button>
+                                   <input type="submit" className="btn btn-success" value="Search"/>
                                 </div>
                             </form>
                             {
                                 errorMessage != "" ?
                                     <React.Fragment>
-                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <div className="alert alert-danger alert-dismissible fade show" role="alert">
                                             <strong>{errorMessage.message}</strong>  Github profile Not found please re enter correct name .
                                             {/* <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}
                                         </div>
