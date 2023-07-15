@@ -48,17 +48,26 @@ let GithubSearch = () => {
                                     <input type="text" className="form-control" required value={user} onChange={updateUserInput} placeholder="user profile name" />
                                 </div>
                                 <div className="col-auto">
-                                   <input type="submit" className="btn btn-success" value="Search"/>
+                                    <input type="submit" className="btn btn-success" value="Search" />
                                 </div>
                             </form>
                             {
                                 errorMessage != "" ?
+
                                     <React.Fragment>
-                                        <div className="alert alert-danger alert-dismissible fade show" role="alert">
-                                            <strong>{errorMessage.message}</strong>  Github profile Not found please re enter correct name .
+                                        {
+                                             errorMessage.code=="ERR_BAD_REQUEST"?
+                                            <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong>{errorMessage.message}</strong> Github profile Not found please re enter correct name .
+                                                {/* <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}
+                                            </div>:
+                                            <div className="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <strong>{errorMessage.message}</strong>  
                                             {/* <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}
                                         </div>
+                                        }
                                     </React.Fragment> : null
+
                             }
                         </div>
                     </div>
