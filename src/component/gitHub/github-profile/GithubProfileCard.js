@@ -13,7 +13,7 @@ let GithubProfileCard=()=>{
                     <img src={profile.avatar_url} className="card-img" alt="" />
                     <p className="card-title">{profile.name}</p>
                     <p className="card-text">{profile.bio}</p>
-                    <a href="" className="btn btn-success btn-sm">profile</a>
+                    <a href={profile.html_url} target="_blank" className="btn btn-info btn-sm">profile</a>
                 </div>
             </div>
         </React.Fragment>
