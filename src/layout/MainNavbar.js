@@ -1,24 +1,32 @@
 import React from "react";
-
+import { Link } from 'react-router-dom'
 let MainNavbar = () => {
     return (
         <React.Fragment>
-            <div className="navbar navbar-expand-lg navbar-light bg-light shadow p-3">
-                <a href="/" className="navbar-brand p-2 fw-bolder"> React Redux Routing</a>
-                <button className="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="mainNav">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <a href="" className="nav-link">Home</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="" className="nav-link">About</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <nav className="navbar navbar-expand-lg bg-body-tertiary p-3">
+                <div class="container-fluid">
+                    <Link className="navbar-brand" href="#">React Redux Routing</Link>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="mainNav">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link">Home</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/employees/list" className="nav-link">Employees</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/stacks/list" className="nav-link">Stacks</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/about" className="nav-link">About</Link>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+            </nav>
         </React.Fragment>
     );
 }
