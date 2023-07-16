@@ -6,8 +6,8 @@ import { store } from './redux/store';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home';
 import About from './components/About';
-import Employees from './components/employee/Employees';
-import Employee from './components/employee/Employee';
+import Employees from './components/employee/EmployeesList';
+import Employee from './components/employee/EmployeeDetails';
 import Stacks from './components/stack/Stacks';
 
 
