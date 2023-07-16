@@ -1,4 +1,4 @@
-import Employees from '../../components/employee/Employees'
+import Employees from '../../components/employee/EmployeesList'
 import * as employeeActions from './employee.action'
 
 export const employeeFeatureKey = "employees"
