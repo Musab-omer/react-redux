@@ -11,7 +11,17 @@ let MainNavbar = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="mainNav">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                           
+                           <li className="nav-item">
+                            <Link to='/' className="nav-link">Home</Link>
+                           </li>
+                           <li className="nav-item">
+                            <Link to='/products/list' className="nav-link">Product</Link>
+                           </li>
+                        </ul>
+                        <ul className="navbar-nav  mb-lg-0">
+                            <li className="nav-item">
+                                <Link to='/products/admin' className="nav-link">Admin</Link>
+                            </li>
                         </ul>
                     </div>
                     </div>
