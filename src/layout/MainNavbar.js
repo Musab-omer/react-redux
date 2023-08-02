@@ -18,7 +18,7 @@ let MainNavbar = () => {
                                 <Link to="/employees/list" className="nav-link">Employees</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/stacks/list" className="nav-link">Stacks</Link>
+                                <Link to="/stocks/list" className="nav-link">Stocks</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/about" className="nav-link">About</Link>
