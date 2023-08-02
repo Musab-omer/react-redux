@@ -8,7 +8,8 @@ import Home from './components/Home';
 import About from './components/About';
 import Employees from './components/employee/EmployeesList';
 import Employee from './components/employee/EmployeeDetails';
-import Stacks from './components/stack/Stacks';
+import Stocks from './components/stock/Stocks';
+import StockDetails from './components/stock/StockDetails';
 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
               <Route exact path='/' Component={Home} />
               <Route exact path='/employees/list' Component={Employees} />
               <Route exact path='/employees/:id' Component={Employee} />
-              <Route exact path='/stacks/list' Component={Stacks} />
+              <Route exact path='/stocks/list' Component={Stocks} />
+              <Route exact path='/stocks/:id' Component={StockDetails}/>
               <Route exact path='/about' Component={About} />
 
             </Routes>
