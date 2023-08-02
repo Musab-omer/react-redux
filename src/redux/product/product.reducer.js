@@ -24,5 +24,6 @@ export const reducer = (state = initialState, action) => {
                 loading: false,
                 errorMessage: payload
             }
+        default: return state
     }
 }
