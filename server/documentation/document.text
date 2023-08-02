@@ -1,0 +1,143 @@
+BigBaskit Application : full stack (MERN) Application
+---------------------------
+
+Server Configuration :
+-----------------------
+Modules need to be installed :
+1. express : npm install express 
+2. Cors : npm install cors
+3. dotenv : npm install dotenv
+4. mongoose : npm install mongoose
+
+REST API Configuration:
+-------------------------
+1. Get all the products:
+	URL: http://127.0.0.1:5000/products
+	REQUEST :GET
+	METHOD : router.get();
+	FIELDS : no-fields
+
+2. Get a single products:
+	URL : http://127.0.0.1:5000/products/:id
+	REQUEST: GET
+	METHOD : router.get();
+	fields : no-fields
+
+3. Create a product :
+	URL: http://127.0.0.1:5000/products
+	REQUEST : POST
+	METHOD : router.post();
+	fields : name,image, price, qty,info ,createdOn
+
+4. Update a product :
+	URL : http://127.0.0.1:5000/product/:id
+	REQUEST : PUT
+	METHOD : router.put();
+	fields : name,image,price,qty,info ,updatedOn
+
+5. Delete a product :
+	URL : http://127.0.0.1:5000/products/:id
+	REQUEST : DELETE 
+	METHOD : router.delete();
+	fields : no-fields
+	
+MONGODB Configuration :
+-------------------------
+DATABASE : Bigbaskit-react
+COLLECTION : Products
+FIELDS : name, image, price, qty,info,createdOn, updatedOn
+
+FIELDS DATATYPE : 
+----------------
+name :string
+imgae :string
+price :number
+qty : number
+info :string
+createdOn: date
+updatedOn : date
+
+
+.env file :
+-------------
+const HOST_NAME = 127.0.0.1 //for host name
+const PORT =5000 // port number
+const MONGO_DB_LOCAL_URL = mongodb://127.0.0.1:27017/BigBaskit   //bigbaskit is database name 
+
+server.js :
+------------
+1.Import modules such as express, dotenv,mongoos in this way
+const express=require('express');
+const dotEnv=require('dotenv');
+const mongoos=require('mongoos);
+
+2.Configure your app in this way :
+const app=express();
+
+3. Configure you dotEnv in this way :
+dotEnv.config();
+
+4.Initlize hostname and port in this way :
+const hostname =process.env.HOST_NAME;
+const port=process.env.PORT;
+
+5. Configure you app to resive a json data :
+app.use(express.json());
+
+6.Configure the router :
+app.use('/api',require('./router/productRouter'));
+
+7. Establish connection to mongodb in this way : 
+mongoos.connect(process.env.MONGO_DB_LOCAL_URL).then(reponse)=>{
+console.log('Connected to MongoDB Successfl....');
+}).catch((error)=>{
+console.error(error);
+process.exit(1); //stop the node js process if unable to connect to DB
+});
+
+8.Let app listine to port and hostname : 
+
+app.listen(port,hostname,()=>{
+console.log(`Server start at http://${hostname}:${port}`)
+});
+
+Configure router :
+-------------------
+1.create router folder 
+2.create productRouter.js file 
+3.write all the api url configuration inside productRouter.js file suc as :
+A. Get all products
+B. Get a single product
+C. Create a product
+D. Update a product
+E. Delete a product
+
+
+MongoDb cofiguration :
+----------------------------
+database : bigbaskit
+collection : products
+fields :name : string 
+		image : string
+		price : number
+		qty : number 
+		createdOn : date (auto)
+		updatedOn : date (auto)
+1. create schema that map to mangodb collection 
+const productSchema =new mongoos.Schema({
+    name:{type:String, required:true},
+    image:{type:String,required:true},
+    price:{type:Number,required:true},
+    qty:{type:Number,required:true},
+    info:{type:String,required:true},
+    createdOn:{type:Date,default:Date.now()},
+    updatedOn:{type:Date,default:null}
+});
+
+2. create model to use schema :
+ const Product =mongoos.model('Product',productSchema);
+ 
+3. export the model to use it in router : 
+module.exports=Product
+
+
