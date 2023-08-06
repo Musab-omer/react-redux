@@ -9,6 +9,7 @@ import ProductsList from './components/product/ProductsList';
 import Admin from './components/admin/Admin';
 import UpdateProduct from './components/product/UpdateProduct';
 import CreateProduct from './components/product/CreateProduct';
+import DeleteProduct from './components/product/DeleteProduct';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route exact path='/products/admin' Component={Admin}/>
               <Route exact path='/products/:id' Component={UpdateProduct}/>
               <Route exact path='/products/create' Component={CreateProduct}/>
+              <Route exact path='/products/delete' Component={DeleteProduct}/>
             </Routes>
           </BrowserRouter>
         </Provider>
