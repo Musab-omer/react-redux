@@ -63,7 +63,7 @@ let Admin = () => {
                                                             <td>{product.updatedOn}</td>
                                                             <td className="">
                                                                 <Link to={`/products/${product._id}`} className="btn btn-warning btn-sm">Update</Link>
-                                                                <Link to={`/products/${product._id}`} className="btn btn-danger btn-sm">Delete</Link>
+                                                                <Link to={`/products/${product._id}`} className="btn btn-danger btn-sm mx-3">Delete</Link>
                                                             </td>
                                                         </tr>
                                                     )
